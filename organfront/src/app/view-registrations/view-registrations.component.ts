@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Registration } from '../models/registration';
 
 @Component({
   selector: 'app-view-registrations',

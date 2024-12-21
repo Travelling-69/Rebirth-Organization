@@ -6,21 +6,47 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" routerLink="/">Rebirth Organisation</a>
+        <a class="navbar-brand" routerLink="/">REBIRTH ORGANIZATION</a><br>
       </div>
-      <div class="collapse navbar-collapse" id="myNavbar">
+      <div [ngSwitch]="menutype">
+      <div class="collapse navbar-collapse" id="myNavbar" *ngSwitchCase="'Guest'">
         <ul class="nav navbar-nav">
-          <li class="active"><a routerLink="/">Home</a></li>
-          <li><a routerLink="/feedback">feedback</a></li>
-          <li><a routerLink="/Info">Info</a></li>
-          <li><a routerLink="/register">Register</a></li>
-          
+          <li class="active"><a routerLink="/">home</a></li>
+          <li><a routerLink="/viewfeedback">Feedback</a></li>
+          <li><a routerLink="/contactus">Contact us</a></li>
+          <li><a routerLink="/info">Information</a></li>
+          <li><a routerLink="/aboutus">About Us</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a routerLink="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
           <li><a routerLink="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-            <li><a routerLink="/admin login"><span class="glyphicon glyphicon-log-in"></span> admin Login</a></li>
+          <li><a routerLink="/adminlogin"><span class="glyphicon glyphicon-log-in"></span> AdminLogin</a></li>
         </ul>
       </div>
+      <div class="collapse navbar-collapse" id="myNavbar" *ngSwitchCase="'user'">
+        <ul class="nav navbar-nav">
+          <li class="active"><a routerLink="/">home</a></li>
+          <li><a routerLink="/donate">Donation Form</a></li>
+          <li><a routerLink="/contactus">Contact us</a></li>
+          <li><a routerLink="/feedback">Feedback</a></li>
+          <li><a routerLink="/enquiry">Enquiry Form</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a (click)="logout()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+          <li><a routerLink="/adminlogin"><span class="glyphicon glyphicon-log-in"></span> AdminLogin</a></li>
+        </ul>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar" *ngSwitchCase="'Admin'">
+        <ul class="nav navbar-nav">
+          <li class="active"><a routerLink="/">home</a></li>
+          <li><a routerLink="/viewenquiry"> View Enquiry </a></li>
+          <li><a routerLink="/viewfeedback">View Feedback</a></li>
+          <li><a routerLink="/viewdonate">View Donate</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a (click)="alogout()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        </ul>
+        </div>
+    </div>
     </div>
   </nav>
